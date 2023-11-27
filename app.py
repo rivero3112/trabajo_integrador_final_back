@@ -61,6 +61,7 @@ productos_schema=ProductoSchema(many=True)  # El objeto productos_schema es para
 def index():
     return jsonify({'mensaje':'Bienvenido a mi API'})
 
+
 # crea los endpoint o rutas (json)
 # @app.route('/productos',methods=['GET'])
 # def get_Productos():
