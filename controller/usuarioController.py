@@ -1,15 +1,8 @@
-from dbModels.model import Usuario, UsuarioSchema
+from dbModels.model import Usuario, Emergencia_usuario, UsuarioSchema, Emergencia_usuarioSchema, db
 from flask import jsonify, request
+from datetime import datetime
 
-def login():
-    all_users=Usuario.query.all()              # el metodo query.all() lo hereda de db.Model
-    result=usuarioSchema.dump(all_users)     # el metodo dump() lo hereda de ma.schema y
-    return jsonify(result)                          # retorna un JSON de todos los registros de la tabla
-    #data = request.form
-    #print(data)
-    #return jsonify(data), 201
+# Instancia de Schema
+usuarioSchemas = UsuarioSchema(many=True)
+telefonosEmergenciaSchemas = Emergencia_usuarioSchema(many=True)
 
-def register():
-    data = request.form
-    print(data)
-    return jsonify(data), 201
