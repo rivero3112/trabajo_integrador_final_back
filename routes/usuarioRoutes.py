@@ -7,12 +7,6 @@ usuario_routes = Blueprint('usuario_routes', __name__)
 usuario_routes.route('/api/usuario/login', methods=['POST'])(login)
 usuario_routes.route('/api/usuario/register', methods=['POST'])(register)
 
-# Telefonos
-usuario_routes.route('/api/usuario/telefono/<int:userId>', methods=['GET'])(getPhones)
-usuario_routes.route('/api/usuario/telefono/<int:userId>', methods=['POST'])(addPhone)
-usuario_routes.route('/api/usuario/telefono/<int:id>', methods=['PUT'])(editPhone)
-usuario_routes.route('/api/usuario/telefono/<int:id>', methods=['DELETE'])(deletePhone)
-
 def login():
     try:
         dataInput=request.form                                              # obtengo los datos del formulario
@@ -82,3 +76,12 @@ def register():
         data = {
             "message": "Error al intentar registrar el usuario",
         }
+
+
+
+# Telefonos
+usuario_routes.route('/api/usuario/telefono/<int:userId>', methods=['GET'])(getPhones)
+usuario_routes.route('/api/usuario/telefono/<int:userId>', methods=['POST'])(addPhone)
+usuario_routes.route('/api/usuario/telefono/<int:id>', methods=['PUT'])(editPhone)
+usuario_routes.route('/api/usuario/telefono/<int:id>', methods=['DELETE'])(deletePhone)
+
